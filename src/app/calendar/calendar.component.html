@@ -10,7 +10,11 @@
                 <app-week-day/>
             </tr>
             <tr>
-                <td>A cell</td>
+                <day-container>
+                    @for(cell of cellsArray; track cell) {
+                        <td>{{ cell }}</td>
+                    } 
+                </day-container>
             </tr>
         </tbody>
     </table>
