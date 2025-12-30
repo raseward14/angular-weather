@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { WeekDay } from '../week-day/week-day.component';
+
 import { DayContainer } from "../ui/container/day-container.component";
 
 @Component({

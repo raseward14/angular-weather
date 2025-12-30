@@ -1,8 +1,8 @@
 <div>
-    <table>
+    <table >
         <thead>
             <tr>
-                <td>{{ currentDate | date: 'MMMM' }}</td>
+                <td>{{ currentDate | date: 'MMMM yyyy' }}</td>
             </tr>
         </thead>
         <tbody>
@@ -10,11 +10,11 @@
                 <app-week-day/>
             </tr>
             <tr>
-                <day-container>
+                <div class="calendar-pane">
                     @for(cell of cellsArray; track cell) {
-                        <td>{{ cell }}</td>
+                        <td class="calendar-cell">{{ cell }}</td>
                     } 
-                </day-container>
+                </div>
             </tr>
         </tbody>
     </table>
