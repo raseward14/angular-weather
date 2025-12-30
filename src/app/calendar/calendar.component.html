@@ -1,21 +1,21 @@
 <div>
-    <table >
-        <thead>
-            <tr>
-                <td>{{ currentDate | date: 'MMMM yyyy' }}</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <app-week-day/>
-            </tr>
-            <tr>
-                <div class="calendar-pane">
-                    @for(cell of cellsArray; track cell) {
-                        <td class="calendar-cell">{{ cell }}</td>
-                    } 
-                </div>
-            </tr>
-        </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <td>{{ currentDate | date : "MMMM yyyy" }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <day-container>
+        @for (day of dayNames; track day) {
+        <app-day>{{ day }}</app-day>
+        }
+      </day-container>
+      <day-container>
+        @for(cell of cellsArray; track cell) {
+        <app-day class="calendar-item">{{ cell }}</app-day>
+        }
+      </day-container>
+    </tbody>
+  </table>
 </div>
