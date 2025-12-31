@@ -18,6 +18,8 @@ export class CalendarComponent implements OnInit {
 
   currentMonth: number = this.currentDate.getMonth();
 
+  currentDay: number = this.currentDate.getDate();
+
   lastDayOfMonth: number = new Date(
     this.currentYear,
     this.currentMonth + 1,
@@ -56,5 +58,6 @@ export class CalendarComponent implements OnInit {
     console.log(`The current month has ${this.lastDayOfMonth} days.`);
     console.log(`The first day of the month is ${this.firstDayName}.`);
     console.log("Cells Array:", this.cellsArray);
+    console.log(`The current day is: ${this.currentDay}`);
   }
 }

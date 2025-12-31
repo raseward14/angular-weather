@@ -14,7 +14,13 @@
         @for (item of spacerDays; track item) {
         <app-day class="calendar-item"></app-day>
         } @for(cell of cellsArray; track cell) {
-        <app-day class="calendar-item">{{ cell }}</app-day>
+        <app-day
+          [ngClass]="{
+            'calendar-item': true,
+            'current-day': cell === currentDay ? true : false
+          }"
+          >{{ cell }}</app-day
+        >
         }
       </day-container>
     </tbody>
