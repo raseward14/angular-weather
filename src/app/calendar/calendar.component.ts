@@ -18,22 +18,15 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   // Use computed() because this value depends on another signal
   currentYear = computed(() => this.currentDate().getFullYear());
-
   currentMonth = computed(() => this.currentDate().getMonth());
-
+  // Day of the month: 1-31
   currentDay = computed(() => this.currentDate().getDate());
-
   currentTime = computed(() => this.currentDate().getTime());
-
-  lastDayOfMonth = computed(() =>
-    new Date(this.currentYear(), this.currentMonth() + 1, 0).getDate()
-  );
 
   firstDayOfMonth = computed(() =>
     new Date(this.currentYear(), this.currentMonth(), 1).getUTCDay()
   );
   // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-
   // Generate an array of empty items to act as spacers
   spacerDays = computed(() => new Array(this.firstDayOfMonth()));
 
@@ -47,8 +40,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
     "Saturday",
   ];
 
-  firstDayName = computed(() => this.dayNames[this.firstDayOfMonth()]);
-
+  // Day of the month: 1-31
+  lastDayOfMonth = computed(() =>
+    new Date(this.currentYear(), this.currentMonth() + 1, 0).getDate()
+  );
   public cellsArray = computed(() =>
     Array(this.lastDayOfMonth())
       .fill(0)
@@ -61,7 +56,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
     console.log(`The first UTC day of the month is ${this.firstDayOfMonth()}`);
     console.log("Calendar initialized with date:", this.currentDate());
     console.log(`The current month has ${this.lastDayOfMonth()} days.`);
-    console.log(`The first day of the month is ${this.firstDayName()}.`);
     console.log("Cells Array:", this.cellsArray());
     console.log(`The current day is: ${this.currentDay()}`);
     console.log(`The current time is: ${this.currentTime()}`);
