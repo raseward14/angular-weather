@@ -55,7 +55,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
       .map((x, i) => i + 1)
   );
 
-  private timerId: any;
+  private timerId: number | undefined;
 
   ngOnInit(): void {
     console.log(`The first UTC day of the month is ${this.firstDayOfMonth()}`);
