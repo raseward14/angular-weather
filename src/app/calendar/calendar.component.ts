@@ -44,6 +44,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
   lastDayOfMonth = computed(() =>
     new Date(this.currentYear(), this.currentMonth() + 1, 0).getDate()
   );
+  // computed(() => {}) signal that listens to this.lastDayOfMonth() - recomputes if that changes
+  // Array(this.lastDayOfMonth()) creates an array with length equal to last day of month
+  // .fill(0) fills the array with zeros (to avoid sparse array issues)
+  // .map((x, i) => i + 1) maps each element to its index + 1, resulting in [1, 2, ..., lastDayOfMonth]
   public cellsArray = computed(() =>
     Array(this.lastDayOfMonth())
       .fill(0)
