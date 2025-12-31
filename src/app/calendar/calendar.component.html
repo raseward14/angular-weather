@@ -1,19 +1,18 @@
 <div>
   <table>
     <thead>
-      <tr>
-        <td>{{ currentDate | date : "MMMM yyyy" }}</td>
-      </tr>
-    </thead>
-    <tbody>
+      <h1>{{ currentDate | date : "MMMM yyyy" }}</h1>
       <day-container>
         @for (day of dayNames; track day) {
         <app-day>{{ day }}</app-day>
         }
       </day-container>
+    </thead>
+
+    <tbody>
       <day-container>
         @for (item of spacerDays; track item) {
-        <app-day></app-day>
+        <app-day class="calendar-item"></app-day>
         } @for(cell of cellsArray; track cell) {
         <app-day class="calendar-item">{{ cell }}</app-day>
         }
