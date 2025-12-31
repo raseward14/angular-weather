@@ -13,19 +13,27 @@ import { Day } from "../ui/day/day.component";
 })
 export class CalendarComponent implements OnInit {
   currentDate: Date = new Date();
+
   currentYear: number = this.currentDate.getFullYear();
+
   currentMonth: number = this.currentDate.getMonth();
+
   lastDayOfMonth: number = new Date(
     this.currentYear,
     this.currentMonth + 1,
     0
   ).getDate();
+
   firstDayOfMonth: number = new Date(
     this.currentYear,
     this.currentMonth,
     1
   ).getUTCDay();
   // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+  // Generate an array of empty items to act as spacers
+  spacerDays = new Array(this.firstDayOfMonth);
+
   dayNames = [
     "Sunday",
     "Monday",
@@ -35,6 +43,7 @@ export class CalendarComponent implements OnInit {
     "Friday",
     "Saturday",
   ];
+
   firstDayName: string = this.dayNames[this.firstDayOfMonth];
 
   public cellsArray: number[] = Array(this.lastDayOfMonth)
@@ -42,6 +51,7 @@ export class CalendarComponent implements OnInit {
     .map((x, i) => i + 1);
 
   ngOnInit(): void {
+    console.log(`The first UTC day of the month is ${this.firstDayOfMonth}`);
     console.log("Calendar initialized with date:", this.currentDate);
     console.log(`The current month has ${this.lastDayOfMonth} days.`);
     console.log(`The first day of the month is ${this.firstDayName}.`);

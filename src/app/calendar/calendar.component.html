@@ -12,7 +12,9 @@
         }
       </day-container>
       <day-container>
-        @for(cell of cellsArray; track cell) {
+        @for (item of spacerDays; track item) {
+        <app-day></app-day>
+        } @for(cell of cellsArray; track cell) {
         <app-day class="calendar-item">{{ cell }}</app-day>
         }
       </day-container>
