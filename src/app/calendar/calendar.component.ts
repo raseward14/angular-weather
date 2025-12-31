@@ -54,6 +54,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
       .map((x, i) => i + 1)
   );
 
+  // Timer ID for interval updates
   private timerId?: number;
 
   ngOnInit(): void {
