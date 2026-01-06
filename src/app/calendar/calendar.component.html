@@ -4,27 +4,31 @@
       <h1>{{ currentDate() | date : "MMMM yyyy" }}</h1>
       <h4>Today is {{ currentDate() | date : "EEEE MMMM d" }}</h4>
       <h4>Current time is {{ currentTime() | date : "h:mm:ss a z" }}</h4>
-      <day-container>
-        @for (day of dayNames; track day) {
-        <app-day>{{ day }}</app-day>
-        }
-      </day-container>
+      <!-- <day-container> -->
+        <tr dayContainer>
+          @for (day of dayNames; track day) {
+          <app-day>{{ day }}</app-day>
+          }
+        </tr>
+      <!-- </day-container> -->
     </thead>
 
     <tbody>
-      <day-container>
-        @for (item of spacerDays(); track item) {
-        <app-day class="calendar-item"></app-day>
-        } @for(cell of cellsArray(); track cell) {
-        <app-day
-          [ngClass]="{
-            'calendar-item': true,
-            'current-day': cell === currentDay() ? true : false
-          }"
-          >{{ cell }}</app-day
-        >
-        }
-      </day-container>
+      <!-- <day-container> -->
+        <tr dayContainer>
+          @for (item of spacerDays(); track item) {
+          <app-day class="calendar-item"></app-day>
+          } @for(cell of cellsArray(); track cell) {
+          <app-day
+            [ngClass]="{
+              'calendar-item': true,
+              'current-day': cell === currentDay() ? true : false
+            }"
+            >{{ cell }}</app-day
+          >
+          }
+        </tr>
+      <!-- </day-container> -->
     </tbody>
   </table>
 </div>

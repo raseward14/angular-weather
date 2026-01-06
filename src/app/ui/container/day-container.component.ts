@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'day-container',
+  selector: 'tr[dayContainer]',
   standalone: true,
   imports: [],
   templateUrl: './day-container.component.html',
