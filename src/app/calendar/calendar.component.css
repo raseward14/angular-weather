@@ -13,17 +13,8 @@ div {
   font-family: "Chalkduster", fantasy;
 }
 
-app-day {
-  border: 2px solid #ccc;
-  padding: 0.5rem;
+td {
   text-align: center;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #2c0a4c;
-  background-color: #f0f0f0;
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   width: 10rem;
 }
 

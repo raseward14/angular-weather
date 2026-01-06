@@ -7,7 +7,7 @@
       <!-- <day-container> -->
         <tr dayContainer>
           @for (day of dayNames; track day) {
-          <app-day>{{ day }}</app-day>
+          <td appDay>{{ day }}</td>
           }
         </tr>
       <!-- </day-container> -->
@@ -17,14 +17,14 @@
       <!-- <day-container> -->
         <tr dayContainer>
           @for (item of spacerDays(); track item) {
-          <app-day class="calendar-item"></app-day>
+          <td appDay class="calendar-item"></td>
           } @for(cell of cellsArray(); track cell) {
-          <app-day
+          <td appDay
             [ngClass]="{
               'calendar-item': true,
               'current-day': cell === currentDay() ? true : false
             }"
-            >{{ cell }}</app-day
+            >{{ cell }}</td
           >
           }
         </tr>

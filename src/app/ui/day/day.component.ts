@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-day",
+  selector: "td[appDay]",
   imports: [],
   templateUrl: "./day.component.html",
   styleUrl: "./day.component.css",
