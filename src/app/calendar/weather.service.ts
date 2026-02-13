@@ -19,7 +19,7 @@ export class WeatherService {
     return (Date.now() - timeStamp) > oneDayMs;
   }
 
-  async get5DayForecast() {
+  async get5DayForecast(lat: string, lon: string) {
     // saved value
     // check if expired
     const lastFetch: lastFetch = localStorage.getItem('last-fetch');
@@ -29,7 +29,8 @@ export class WeatherService {
     if (fetchNeeded) {
       try {
         // fetch 5 day forecast
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=Greeley&appid=${this.apiKey}`;
+
+        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}`;
 
         const response = await fetch(url);
         const data = await response.json();
@@ -54,20 +55,20 @@ export class WeatherService {
     }
   }
 
-  async getLocation(city: string, state: string, country: string) {
-    try {
-      const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=5&appid=${this.apiKey}`;
+  // async getLocation(city: string, state: string, country: string) {
+  //   try {
+  //     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=5&appid=${this.apiKey}`;
 
-      const response = await fetch(url);
-      const data = response.json();
+  //     const response = await fetch(url);
+  //     const data = response.json();
 
-      console.log(data);
+  //     console.log(data);
 
-      // this will need to be passed to get5DayForecast
-      return {};
-    } catch (error) {
-      console.error('Error fetching data', error);
-      return {};
-    }
-  }
+  //     // this will need to be passed to get5DayForecast
+  //     return {};
+  //   } catch (error) {
+  //     console.error('Error fetching data', error);
+  //     return {};
+  //   }
+  // }
 }
