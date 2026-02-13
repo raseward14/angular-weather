@@ -6,7 +6,8 @@ import type { lastFetch } from './calendar.types';
   providedIn: 'root'
 })
 export class WeatherService {
-  
+  apiKey = import.meta.env.NG_APP_WEATHER_API_KEY;
+
   isExpired(lastFetch: lastFetch): boolean {
     if (!lastFetch) return true;
     // last fetch string timestamp covert to number
@@ -28,13 +29,13 @@ export class WeatherService {
     if (fetchNeeded) {
       try {
         // fetch 5 day forecast
-        const apiKey = import.meta.env.NG_APP_WEATHER_API_KEY;
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=Greeley&appid=${apiKey}`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=Greeley&appid=${this.apiKey}`;
 
         const response = await fetch(url);
         const data = await response.json();
         
         // store the timestamp of the fetch AND the data
+        // these should maybe be stored in specific locations - so we have multiple locations that can be cached
         localStorage.setItem('last-fetch', Date.now().toString());
         localStorage.setItem('forecast-data', JSON.stringify(data.list));
         
@@ -50,6 +51,23 @@ export class WeatherService {
       console.log('Loading from cache...');
       const cachedData = localStorage.getItem('forecast-data');
       return cachedData ? JSON.parse(cachedData) : [];
+    }
+  }
+
+  async getLocation(city: string, state: string, country: string) {
+    try {
+      const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=5&appid=${this.apiKey}`;
+
+      const response = await fetch(url);
+      const data = response.json();
+
+      console.log(data);
+
+      // this will need to be passed to get5DayForecast
+      return {};
+    } catch (error) {
+      console.error('Error fetching data', error);
+      return {};
     }
   }
 }

@@ -9,12 +9,10 @@ import { WeatherService } from '../weather.service';
   styleUrl: "./forecast.component.css",
 })
 export class ForecastComponent implements OnInit {
-// Check Local Storage for a saved weather object and timestamp
-// If the data exists and is less than 24 hours old, use it.
-// If it's missing, call the API and save the new result + new timestamp.
   private weatherService = inject(WeatherService)
 
   ngOnInit() {
+    // we'll need to call getLocation instead, from there check the forecast of that location
     const forecast = this.weatherService.get5DayForecast();
     console.log(forecast);
   }

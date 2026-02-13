@@ -16,6 +16,7 @@ declare interface ImportMeta {
 
 interface ImportMetaEnv {
   readonly NG_APP_WEATHER_API_KEY: string;
+  readonly NG_APP_GEOCODE_API_KEY: string;
 }
 
 // 2. Use _NGX_ENV_.YOUR_ENV_VAR in your code. (customizable)

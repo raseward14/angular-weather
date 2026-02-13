@@ -1,0 +1,19 @@
+<mat-form-field>
+    <mat-label>Search City</mat-label>
+    <input 
+        matInput 
+        #cityInput 
+        (input)="onType(cityInput.value)" 
+        [matAutocomplete]="auto" 
+        [value]="lastValue()" />
+
+    <mat-autocomplete #auto="matAutocomplete" 
+        [displayWith]="displayFn"
+        (optionSelected)="onSelect($event.option.value)">
+        @for(loc of suggestions; track loc.place_id) {
+            <mat-option [value]="loc">
+                {{ loc.display_name }}
+            </mat-option>
+        }
+    </mat-autocomplete>
+</mat-form-field>

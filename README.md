@@ -71,4 +71,6 @@ Please, use the endpoint api.openweathermap.org for API calls
 
 API key is free, and added to .env
 
+## Angular Material UI
 
+Documentation: https://material.angular.dev/?theme=azure-blue
