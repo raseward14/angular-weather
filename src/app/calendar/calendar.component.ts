@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy, signal, computed } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { DayContainer } from "../ui/container/day-container.component";
-import { Day } from "../ui/day/day.component";
+import { DayContainer } from "./ui/container/day-container.component";
+import { Day } from "./ui/day/day.component";
+import { ForecastComponent } from "./forecast/forecast.component";
 
 @Component({
   selector: "app-calendar",
   standalone: true,
-  imports: [CommonModule, Day, DayContainer],
+  imports: [CommonModule, Day, DayContainer, ForecastComponent],
   templateUrl: "./calendar.component.html",
   styleUrls: ["./calendar.component.css"],
 })
