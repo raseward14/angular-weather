@@ -9,7 +9,6 @@ export class WeatherService {
   
   isExpired(lastFetch: lastFetch): boolean {
     if (!lastFetch) return true;
-
     // last fetch string timestamp covert to number
     // one day in milliseconds
     const timeStamp = Number(lastFetch);
@@ -38,13 +37,19 @@ export class WeatherService {
         // store the timestamp of the fetch AND the data
         localStorage.setItem('last-fetch', Date.now().toString());
         localStorage.setItem('forecast-data', JSON.stringify(data.list));
-  
+        
+        console.log('Caching: ', data.list);
         return data.list;
       } catch (error) {
         console.error('Error fetching data', error);
         // return still needed to prevent function returning undefined
         return [];
       }
+    } else {
+      // if not fetch is needed, the data is cached, we can return it
+      console.log('Loading from cache...');
+      const cachedData = localStorage.getItem('forecast-data');
+      return cachedData ? JSON.parse(cachedData) : [];
     }
   }
 }
