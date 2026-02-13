@@ -17,6 +17,5 @@ export class ForecastComponent implements OnInit {
   ngOnInit() {
     const forecast = this.weatherService.get5DayForecast();
     console.log(forecast);
-    
   }
 }
