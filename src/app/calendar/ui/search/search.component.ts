@@ -54,7 +54,6 @@ export class SearchComponent {
 
     console.log(`Setting location to ${city} (${lat}, ${lon})`);
     this.weatherService.get5DayForecast(lat, lon);
-    // pass to weather service
   }
 
 }
