@@ -12,7 +12,6 @@ export class ForecastComponent implements OnInit {
   private weatherService = inject(WeatherService)
 
   ngOnInit() {
-    // we'll need to call getLocation instead, from there check the forecast of that location
     // const forecast = this.weatherService.get5DayForecast();
     // console.log(forecast);
   }

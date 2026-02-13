@@ -54,21 +54,4 @@ export class WeatherService {
       return cachedData ? JSON.parse(cachedData) : [];
     }
   }
-
-  // async getLocation(city: string, state: string, country: string) {
-  //   try {
-  //     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=5&appid=${this.apiKey}`;
-
-  //     const response = await fetch(url);
-  //     const data = response.json();
-
-  //     console.log(data);
-
-  //     // this will need to be passed to get5DayForecast
-  //     return {};
-  //   } catch (error) {
-  //     console.error('Error fetching data', error);
-  //     return {};
-  //   }
-  // }
 }
